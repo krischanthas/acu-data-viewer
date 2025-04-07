@@ -33,8 +33,9 @@ export const getAccessToken = async (): Promise<string> => {
     // Make the POST request to get the access token
     const response: AxiosResponse = await axios.post(authUrl, body.toString(), {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',  // Correct content-type
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
+      maxRedirects: 0,  // Prevent Axios from following redirects
     });
 
     // Return the access token from the response

@@ -23,21 +23,19 @@ const Home = () => {
     );
   }
 
-
   return (
-    <div className="p-6">
-      {/* <p className="mb-6">Welcome, {session?.user?.name}!</p> */}
-
+    <div className="p-4 md:p-6">
+      <h1 className="text-xl md:text-2xl font-semibold mb-4">Welcome {session?.user?.name}</h1>
       {/* Grid container */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {/* Card 1: Stock Check */}
         <div className="flex justify-center">
           <Link
             href="/stock"
-            className="flex flex-col items-center justify-center w-full h-full bg-gray-200 text-center shadow-lg rounded-lg hover:shadow-xl transition-all p-8"
+            className="flex flex-col items-center justify-center w-full h-full bg-gray-200 text-center shadow-lg rounded-lg hover:shadow-xl transition-all p-6 md:p-8"
           >
-            <div className="text-2xl font-bold mb-4">Stock Check</div>
-            <p className="text-gray-600">Check inventory and stock levels.</p>
+            <div className="text-lg md:text-2xl font-bold mb-4">Stock Check</div>
+            <p className="text-gray-600 text-sm md:text-base">Check inventory and stock levels.</p>
           </Link>
         </div>
 
@@ -55,25 +53,23 @@ const Home = () => {
         ))} */}
 
         {/* Uncomment and edit below for future cards */}
-
         {/* 
         <div className="flex justify-center">
           <Link
             href="/new-page"
-            className="flex flex-col items-center justify-center w-full h-full bg-white text-center shadow-lg rounded-lg hover:shadow-xl transition-all p-8"
+            className="flex flex-col items-center justify-center w-full h-full bg-white text-center shadow-lg rounded-lg hover:shadow-xl transition-all p-6 md:p-8"
           >
-            <div className="text-2xl font-bold mb-4">New Page</div>
-            <p className="text-gray-600">Description of the new page.</p>
+            <div className="text-lg md:text-2xl font-bold mb-4">New Page</div>
+            <p className="text-gray-600 text-sm md:text-base">Description of the new page.</p>
           </Link>
         </div>
-        
         <div className="flex justify-center">
           <Link
             href="/another-page"
-            className="flex flex-col items-center justify-center w-full h-full bg-white text-center shadow-lg rounded-lg hover:shadow-xl transition-all p-8"
+            className="flex flex-col items-center justify-center w-full h-full bg-white text-center shadow-lg rounded-lg hover:shadow-xl transition-all p-6 md:p-8"
           >
-            <div className="text-2xl font-bold mb-4">Another Page</div>
-            <p className="text-gray-600">Description for another page.</p>
+            <div className="text-lg md:text-2xl font-bold mb-4">Another Page</div>
+            <p className="text-gray-600 text-sm md:text-base">Description for another page.</p>
           </Link>
         </div>
         */}

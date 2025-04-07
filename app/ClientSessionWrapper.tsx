@@ -1,12 +1,12 @@
-// app/ClientSessionWrapper.tsx
-"use client"; // This makes it a Client Component
+"use client";
 
-import { SessionProvider } from "next-auth/react"; // Import SessionProvider
+import { SessionProvider } from "next-auth/react";
 import { ReactNode } from "react";
+import type { Session } from "next-auth";
 
 interface Props {
     children: ReactNode;
-    session?: any;
+    session: Session | null;
 }
 
 export default function ClientSessionWrapper({ children, session }: Props) {

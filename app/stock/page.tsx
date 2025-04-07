@@ -67,16 +67,19 @@ const Stock = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch(`/api/stock?search=${searchQuery}`);
-            const data: InventoryItem[] = await response.json();
+            const response = await fetch(`/api/stock/${searchQuery}`);
 
-            if (response.ok) {
-                setInventory(data);
-            } else {
-                setError('Failed to fetch inventory');
+            // Check if the response is successful (status 200-299)
+            if (!response.ok) {
+                const errorData = await response.json(); // Parse the error body
+                setError(errorData?.message || 'Failed to fetch inventory');
+                return;
             }
+
+            const data: InventoryItem[] = await response.json();
+            setInventory(data);
         } catch (err) {
-            setError('Failed to fetch inventory');
+            setError(`Failed to fetch inventory: ${err}`);
         } finally {
             setLoading(false);
         }

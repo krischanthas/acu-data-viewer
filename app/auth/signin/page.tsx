@@ -1,9 +1,9 @@
 "use client";
 
-import { useSession, signIn, signOut } from "next-auth/react";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Image from "next/image"; // Import Image from next/image
 
 const SignIn = () => {
     const router = useRouter();
@@ -21,7 +21,14 @@ const SignIn = () => {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-            <img src="/acu-logo.jpg" alt="Elevated" className="w-50" />
+            {/* Use the Image component instead of img */}
+            <Image
+                src="/acu-logo.jpg"
+                alt="Elevated"
+                width={200} // Specify the width
+                height={200} // Specify the height
+                className="w-50" // You can still use Tailwind for additional styling
+            />
             <div className="bg-white p-8 rounded-lg shadow-lg">
                 {/* <h2 className="text-2xl mb-4">Sign In</h2> */}
                 <button
@@ -36,4 +43,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
