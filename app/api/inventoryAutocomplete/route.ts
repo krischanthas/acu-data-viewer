@@ -31,7 +31,7 @@ export async function GET(req: NextRequest) {
         WHERE InventoryID LIKE @search OR ItemDescription LIKE @search
       `);
 
-      await RedisClient.set(cacheKey, JSON.stringify(result.recordset), { EX: 3600 }); // Cache for 1 hour (adjust expiration time as needed)
+      await RedisClient.set(cacheKey, JSON.stringify(result.recordset), 'EX', 3600); // Cache for 1 hour (adjust expiration time as needed)
 
       return NextResponse.json({ suggestions: result.recordset });
   } catch (error) {
