@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToDatabase } from '@/lib/db';
 import sql from 'mssql';
+import RedisClient from "@/lib/redis";  
+
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -10,6 +12,15 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+
+    const cacheKey = `inventory:${query}`;
+    const cachedData = await RedisClient.get(cacheKey);
+
+    if (cachedData) {
+      // If data is cached, return the cached suggestions
+      return NextResponse.json({ suggestions: JSON.parse(cachedData) });
+    }
+
     const pool = await connectToDatabase();
     const result = await pool
       .request()
