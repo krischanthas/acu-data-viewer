@@ -97,11 +97,8 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div className="flex flex-col items-center space-y-6 mt-12">
-                    <Link href="/stock" className="text-white hover:text-blue-200 transition-all" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/stock" className="text-white hover:text-blue-200 transition-all">
                         Stock Check
-                    </Link>
-                    <Link href="/inventorySummary" className="text-white hover:text-blue-200 transition-all" onClick={() => setIsMenuOpen(false)}>
-                        Inventory Summary
                     </Link>
                 </div>
             </div>
