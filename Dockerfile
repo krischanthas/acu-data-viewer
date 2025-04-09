@@ -2,7 +2,9 @@
 FROM node:20-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN npm ci
+
+# Install both production and development dependencies for dev environment
+RUN npm install  # Instead of 'npm ci', which installs only prod deps
 
 # 2. Build the app with standalone output
 FROM node:20-alpine AS builder
