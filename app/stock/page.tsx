@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { HiOutlineCube } from 'react-icons/hi';
 
 // Updated Type Definition
 type InventoryItem = {
@@ -86,9 +87,12 @@ const Stock = () => {
     };
 
     return (
-        <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-md">
-            <h1 className="text-2xl font-bold mb-4 text-gray-800">Stock Check</h1>
-
+        <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg">
+            <div className="flex items-center space-x-2 mb-4">
+                {/* Icon for stock/inventory */}
+                <HiOutlineCube className="w-6 h-6 text-gray-700" />
+                <h1 className="text-2xl font-bold text-gray-800">Stock Check</h1>
+            </div>
             <div className="relative mb-4 w-full max-w-md mx-auto">
                 <input
                     type="text"
@@ -121,7 +125,7 @@ const Stock = () => {
                 <button
                     onClick={handleSearch}
                     disabled={loading}
-                    className="w-full py-3 px-6 text-white bg-[var(--customBlue)] rounded-lg hover:bg-blue-400 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    className="w-full py-3 px-6 text-white bg-[var(--customBlue)] rounded-lg hover:bg-blue-400 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer"
                 >
                     {loading ? 'Searching...' : 'Search'}
                 </button>

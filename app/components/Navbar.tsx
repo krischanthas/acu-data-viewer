@@ -3,6 +3,7 @@
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
+import { HiOutlineCube } from 'react-icons/hi';
 
 const Navbar = () => {
     const { data: session, status } = useSession();
@@ -28,7 +29,7 @@ const Navbar = () => {
         <nav className="bg-[var(--customBlue)] p-4 text-white flex justify-between items-center relative">
             <div className="flex justify-center items-center">
                 {/* Hamburger Menu Button */}
-                <button onClick={toggleMenu} className="text-white focus:outline-none">
+                <button onClick={toggleMenu} className="text-white focus:outline-none cursor-pointer">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-6 h-6"
@@ -52,7 +53,7 @@ const Navbar = () => {
             {/* Profile Dropdown */}
             {status === 'authenticated' && (
                 <div className="relative flex items-center">
-                    <button onClick={toggleDropdown} className="flex items-center space-x-2 text-white focus:outline-none">
+                    <button onClick={toggleDropdown} className="flex items-center space-x-2 text-white focus:outline-none cursor-pointer">
                         <svg
                             className="w-8 h-8 rounded-full bg-white text-[var(--customBlue)] p-1"
                             xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +70,7 @@ const Navbar = () => {
                     </button>
                     {isDropdownOpen && (
                         <div ref={dropdownRef} className="absolute top-full right-0 mt-2 w-48 bg-white text-black shadow-lg rounded-lg z-50">
-                            <button onClick={() => signOut()} className="w-full text-left px-4 py-2 hover:bg-gray-200 rounded-lg">
+                            <button onClick={() => signOut()} className="w-full text-left px-4 py-2 hover:bg-gray-200 rounded-lg cursor-pointer">
                                 Sign Out
                             </button>
                         </div>
@@ -97,8 +98,10 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div className="flex flex-col items-center space-y-6 mt-12">
-                    <Link href="/stock" className="text-white hover:text-blue-200 transition-all">
-                        Stock Check
+
+                    <Link href="/stock" className="flex items-center space-x-2 text-white hover:text-blue-200 transition-all">
+                        <HiOutlineCube className="w-6 h-6 text-white" />
+                        <span>Stock Check</span>
                     </Link>
                 </div>
             </div>

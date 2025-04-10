@@ -4,9 +4,10 @@ import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { HiOutlineCube } from 'react-icons/hi';
 
 const Home = () => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const Home = () => {
 
   return (
     <div className="p-4 md:p-6">
-      <h1 className="text-xl md:text-2xl font-semibold mb-4">Welcome {session?.user?.name}</h1>
+      {/* <h1 className="text-xl md:text-2xl font-semibold mb-4">Welcome {session?.user?.name}</h1> */}
       {/* Grid container */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {/* Card 1: Stock Check */}
@@ -34,6 +35,9 @@ const Home = () => {
             href="/stock"
             className="flex flex-col items-center justify-center w-full h-full bg-gray-200 text-center shadow-lg rounded-lg hover:shadow-xl transition-all p-6 md:p-8"
           >
+            <div className="flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full mb-4">
+              <HiOutlineCube className="w-6 h-6 text-white" />
+            </div>
             <div className="text-lg md:text-2xl font-bold mb-4">Stock Check</div>
             <p className="text-gray-600 text-sm md:text-base">Check inventory and stock levels.</p>
           </Link>
